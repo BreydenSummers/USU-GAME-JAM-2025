@@ -4,15 +4,18 @@ from random import randint
 import os
 
 class Game:
-    def __init__(self, window_size = (400, 300), max_framerate = 30):
+    def __init__(self, window_size = (120, 80), max_framerate = 30):
         self.window = pygame.display.set_mode((window_size), pygame.NOFRAME)
         self.frame_timer = pygame.time.Clock()
         self.max_framerate = max_framerate
 
         self.sdl_window = Window.from_display_module()
         self.running = True
+        self.frame_count = 0
 
-        #$self.level_1_bmp = pygame.image.load(os.path.join("__file__"))
+        assets_path = os.path.join(os.path.dirname( __file__ ), "..", "assets")
+        self.level_1_bmp = pygame.image.load(os.path.join(assets_path, "level_1.bmp"))
+        self.level_2_bmp = pygame.image.load(os.path.join(assets_path, "level_2.bmp"))
 
 
     def window_size(self):
@@ -33,15 +36,27 @@ class Game:
             #print(event)
 
     def update_physics(self):
-        pass
+        if self.frame_count == 100:
+            self.set_window_position(
+                (380, 280), (180, 140)
+            )
 
     def update_display(self):
         self.window.fill((255, 255, 255))
 
+        if self.frame_count < 100:
+            self.window.blit(self.level_1_bmp, (0, 0))
+        if self.frame_count >= 100:
+            self.window.blit(self.level_2_bmp, (0, 0))
+
         pygame.display.update()
+        self.frame_count += 1
         self.frame_timer.tick(self.max_framerate)
 
     def run_game(self):
+        self.set_window_position(
+            (400, 300), (120, 80)
+        )
         while self.running:
             self.handle_events()
 
