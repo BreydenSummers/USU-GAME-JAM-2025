@@ -58,6 +58,12 @@ class Game:
                 player.move("left", self.frame_count)
             if pressed_keys[pygame.K_d]:
                 player.move("right", self.frame_count)
+            if pressed_keys[pygame.K_ESCAPE]:
+                self.running = False
+            if pressed_keys[pygame.K_p]:
+                self.set_window_position(
+                    (200, 200), (600, 400)
+                )
 
 
     def update_physics(self):

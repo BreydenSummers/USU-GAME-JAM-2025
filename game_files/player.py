@@ -2,8 +2,8 @@ import pygame
 import os
 from game_files.lerp import Lerp
 
-TILE_SIZE = 32
-LERP_FRAMES = 5
+TILE_SIZE = 24
+LERP_FRAMES = 3
 
 assets_path = os.path.join(os.path.dirname(os.path.dirname( __file__ )), "Assets")
 print(assets_path)
