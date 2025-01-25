@@ -43,13 +43,13 @@ class Game:
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
-                    player.move("up")
+                    player.move("up", self.frame_count)
                 if event.key == pygame.K_s:
-                    player.move("down")
+                    player.move("down", self.frame_count)
                 if event.key == pygame.K_a:
-                    player.move("left")
+                    player.move("left", self.frame_count)
                 if event.key == pygame.K_d:
-                    player.move("right")
+                    player.move("right", self.frame_count)
 
 
     def update_physics(self):
