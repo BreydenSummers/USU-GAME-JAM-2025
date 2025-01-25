@@ -63,7 +63,6 @@ class RectButton(Clickable):
         super().__init__(cx,cy,w,h,color,callback,text=text,text_color=(0,0,0),type="box")
 
     def draw(self,screen):
-        print("test")
         pygame.draw.rect(screen,self.color,(self.cx-self.w/2,self.cy-self.h/2,self.w,self.h),border_radius=10)
         if self.text != "":
             self.text.draw(screen)
