@@ -29,6 +29,9 @@ class Game:
         self.map = pygame.image.load(os.path.join(assets_path, "Background/map.png")).convert()
 
 
+    def start_systems(self):
+        pygame.key.set_repeat(10, 10)
+
     def window_size(self):
         return self.window.get_size()
     
@@ -45,15 +48,16 @@ class Game:
                 self.running = False
                 return 0
             
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w:
-                    player.move("up", self.frame_count)
-                if event.key == pygame.K_s:
-                    player.move("down", self.frame_count)
-                if event.key == pygame.K_a:
-                    player.move("left", self.frame_count)
-                if event.key == pygame.K_d:
-                    player.move("right", self.frame_count)
+            pressed_keys = pygame.key.get_pressed()
+            
+            if pressed_keys[pygame.K_w]:
+                player.move("up", self.frame_count)
+            if pressed_keys[pygame.K_s]:
+                player.move("down", self.frame_count)
+            if pressed_keys[pygame.K_a]:
+                player.move("left", self.frame_count)
+            if pressed_keys[pygame.K_d]:
+                player.move("right", self.frame_count)
 
 
     def update_physics(self):
@@ -71,6 +75,8 @@ class Game:
         self.frame_timer.tick(self.max_framerate)
 
     def run_game(self):
+        self.start_systems()
+
         while self.running:
             self.handle_events()
 

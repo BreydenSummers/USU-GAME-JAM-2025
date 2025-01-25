@@ -62,7 +62,7 @@ class Player:
         ]
 
         self.movement_lerp = Lerp(
-            self.position.copy(),
+            self.position,
             target_position,
             frame_number,
             frame_number + LERP_FRAMES
