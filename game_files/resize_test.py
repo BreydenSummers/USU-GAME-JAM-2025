@@ -1,16 +1,25 @@
 import pygame
+from pygame._sdl2 import Window
+from random import randint
 
 class Game:
     def __init__(self, window_size = (400, 300), max_framerate = 30):
-        self.window = pygame.display.set_mode((window_size))
+        self.window = pygame.display.set_mode((window_size), pygame.NOFRAME)
         self.frame_timer = pygame.time.Clock()
         self.max_framerate = max_framerate
 
+        self.sdl_window = Window.from_display_module()
         self.running = True
 
 
     def window_size(self):
         return self.window.get_size()
+    
+    def set_window_position(self, top_left, size=0):
+        self.sdl_window.position = top_left
+        if size == 0:
+            size = self.window_size()
+        self.window = pygame.display.set_mode(size, pygame.NOFRAME)
     
 
     def handle_events(self):
