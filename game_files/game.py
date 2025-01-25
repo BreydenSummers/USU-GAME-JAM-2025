@@ -13,7 +13,7 @@ player = Player()
 
 
 class Game:
-    def __init__(self, window_size = (120, 80), max_framerate = 30):
+    def __init__(self, window_size = (400, 300), max_framerate = 30):
         self.window = pygame.display.set_mode((window_size), pygame.NOFRAME)
         self.frame_timer = pygame.time.Clock()
         self.max_framerate = max_framerate
@@ -57,9 +57,6 @@ class Game:
         self.frame_timer.tick(self.max_framerate)
 
     def run_game(self):
-        self.set_window_position(
-            (400, 300), (120, 80)
-        )
         while self.running:
             self.handle_events()
 
