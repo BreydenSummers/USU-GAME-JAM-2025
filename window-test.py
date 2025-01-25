@@ -1,7 +1,9 @@
 import pygame
 
 
-class Game
+class Game:
+    def __init__():
+        pass
 
 if __name__ == "__main__":
-    main_loop()
+    pass
