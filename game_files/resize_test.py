@@ -1,44 +1,43 @@
 import pygame
 
+class Game:
+    def __init__(self, window_size = (400, 300), max_framerate = 30):
+        self.window = pygame.display.set_mode((window_size))
+        self.frame_timer = pygame.time.Clock()
+        self.max_framerate = max_framerate
 
-SCREEN_SIZE = (400, 300)
-MAX_FRAMERATE = 30
-
-game_window = pygame.display.set_mode(SCREEN_SIZE)
+        self.running = True
 
 
-
-def process_window_events():
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            return False
-        print(event)
+    def window_size(self):
+        return self.window.get_size()
     
-    return True
 
-def update_game_physics():
-    pass
+    def handle_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+                return 0
+            print(event)
 
-clock = pygame.time.Clock()
-def update_window_graphics():
-    game_window.fill((255, 255, 255))
+    def update_physics(self):
+        pass
 
-    pygame.display.update()
-    clock.tick(MAX_FRAMERATE)
+    def update_display(self):
+        self.window.fill((255, 255, 255))
 
+        pygame.display.update()
+        self.frame_timer.tick(self.max_framerate)
 
-def main_loop():
-    running = True
-    pygame.init()
+    def run_game(self):
+        while self.running:
+            self.handle_events()
 
-    while running:
-        running = process_window_events()
+            self.update_physics()
 
-        update_game_physics()
+            self.update_display()
 
-        update_window_graphics()
-
-    pygame.quit()
 
 if __name__ == "__main__":
-    main_loop()
+    game = Game()
+    game.run_game()
