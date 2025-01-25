@@ -18,7 +18,6 @@ class Text:
                 elif max_height > 0:
                     if rect.height <= max_height:
                         break
-
         else:
             img = fontObj.render(text,True,color)
         self.img = img

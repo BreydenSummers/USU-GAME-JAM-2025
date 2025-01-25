@@ -17,6 +17,11 @@ class Scene:
         self.map[row][column] = obj
         self.map[row][column].draw(self.surface)
 
+    def check_occupied(self,row,column):
+        if self.map[row][column] is not None:
+            return True
+        else:
+            return False
 
     def add_ui_object(self, obj):
         self.objects.append(obj)
