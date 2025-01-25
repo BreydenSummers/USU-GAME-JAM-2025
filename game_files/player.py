@@ -18,7 +18,7 @@ class Player:
     def __init__(self):
         self.idle_animations = {
             #"up" : self.load_sprite_images("ThisJohn_up"),
-            "down" : self.load_sprite_images("player_sprites/up"),
+            "down" : self.load_sprite_images("player_sprites/down"),
             #"left" : self.load_sprite_images("ThisJohn_left"),
             #"right" : self.load_sprite_images("ThisJohn_right")
         }
