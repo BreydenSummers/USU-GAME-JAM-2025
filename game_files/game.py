@@ -9,7 +9,7 @@ class Game:
         self.frame_timer = pygame.time.Clock()
         self.max_framerate = max_framerate
 
-        self.sdl_window = Window.from_display_module()
+        self.sdl_window = Window.from_display_module() 
         self.running = True
         self.frame_count = 0
 
