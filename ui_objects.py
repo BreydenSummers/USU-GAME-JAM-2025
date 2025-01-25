@@ -23,7 +23,7 @@ class Clickable:
                 return True
             else:
                 return False
-            
+
 
 class RectButton(Clickable):
     def __init__(self,cx,cy,w,h,color,callback):
