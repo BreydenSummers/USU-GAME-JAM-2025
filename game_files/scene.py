@@ -1,15 +1,17 @@
 import pygame
 
+TILE_SIZE = 8
+
 class Scene:
     def __init__(self, image, w, h):
         self.image = pygame.image.load(image)
         self.image.convert()
-        self.map = []
+
         self.objects = []
-        for i in range(h/10):
-            self.map.append([None for n in range(w/10)])
         self.surface = pygame.Surface((w, h))
         self.image.blit(self.surface, (0, 0))
+
+        self.map = [[0 for _ in range(h/TILE_SIZE)] for _ in range(w/TILE_SIZE)]
 
     def add_map_object(self, obj, row, column):
         self.map[row][column] = obj
