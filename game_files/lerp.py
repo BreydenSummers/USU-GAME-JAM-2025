@@ -2,6 +2,7 @@ class Lerp:
     def __init__(self, start, end, range_start, range_end):
         self.start = start
         self.end = end
+        
         self.range_start = range_start
         self.range_end = range_end
 
