@@ -2,6 +2,15 @@ import pygame
 from pygame._sdl2 import Window
 from random import randint
 import os
+from game_files.player import Player
+
+
+pygame.init()
+assets_path = os.path.join(os.path.dirname( __file__ ), "..", "assets")
+
+display = pygame.display.set_mode((1, 1))
+player = Player()
+
 
 class Game:
     def __init__(self, window_size = (120, 80), max_framerate = 30):
@@ -13,9 +22,8 @@ class Game:
         self.running = True
         self.frame_count = 0
 
-        assets_path = os.path.join(os.path.dirname( __file__ ), "..", "assets")
-        self.level_1_bmp = pygame.image.load(os.path.join(assets_path, "level_1.bmp"))
-        self.level_2_bmp = pygame.image.load(os.path.join(assets_path, "level_2.bmp"))
+        self.level_1_bmp = pygame.image.load(os.path.join(assets_path, "level_1.bmp")).convert()
+        self.level_2_bmp = pygame.image.load(os.path.join(assets_path, "level_2.bmp")).convert()
 
 
     def window_size(self):
@@ -48,6 +56,8 @@ class Game:
             self.window.blit(self.level_1_bmp, (0, 0))
         if self.frame_count >= 100:
             self.window.blit(self.level_2_bmp, (0, 0))
+
+        player.animate(self.window, self.frame_count)
 
         pygame.display.update()
         self.frame_count += 1
