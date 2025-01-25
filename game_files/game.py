@@ -22,8 +22,7 @@ class Game:
         self.running = True
         self.frame_count = 0
 
-        self.level_1_bmp = pygame.image.load(os.path.join(assets_path, "level_1.bmp")).convert()
-        self.level_2_bmp = pygame.image.load(os.path.join(assets_path, "level_2.bmp")).convert()
+        self.map = pygame.image.load(os.path.join(assets_path, "Background/map.png")).convert()
 
 
     def window_size(self):
@@ -44,18 +43,12 @@ class Game:
             #print(event)
 
     def update_physics(self):
-        if self.frame_count == 100:
-            self.set_window_position(
-                (380, 280), (180, 140)
-            )
+        pass
 
     def update_display(self):
         self.window.fill((255, 255, 255))
 
-        if self.frame_count < 100:
-            self.window.blit(self.level_1_bmp, (0, 0))
-        if self.frame_count >= 100:
-            self.window.blit(self.level_2_bmp, (0, 0))
+        self.window.blit(self.map, (0, 0))
 
         player.animate(self.window, self.frame_count)
 
@@ -77,6 +70,6 @@ class Game:
 
 if __name__ == "__main__":
     game = Game(
-        window_size=(120, 80)
+        window_size=(400, 300)
     )
     game.run_game()
