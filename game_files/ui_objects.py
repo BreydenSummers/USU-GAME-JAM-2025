@@ -1,7 +1,7 @@
 import pygame
 
 class Clickable:
-    def __init__(self,cx,cy,w,h,color,callback,type="box"):
+    def __init__(self,cx,cy,w,h,color,callback,text="",type="box"):
         self.cx = cx
         self.cy = cy
         self.w = w
@@ -31,6 +31,8 @@ class RectButton(Clickable):
 
     def draw(self,screen):
         pygame.draw.rect(screen,self.color,(self.cx,self.cy,self.cw,self.ch))
+        if self.text != "":
+            None
 
 
 class RoundButton(Clickable):
