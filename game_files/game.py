@@ -6,7 +6,7 @@ from game_files.player import Player
 
 
 pygame.init()
-assets_path = os.path.join(os.path.dirname( __file__ ), "..", "assets")
+assets_path = os.path.join(os.path.dirname( __file__ ), "..", "Assets")
 
 display = pygame.display.set_mode((1, 1))
 player = Player()
