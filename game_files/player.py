@@ -18,10 +18,10 @@ class Player:
 
     def __init__(self):
         self.idle_animations = {
-            #"up" : self.load_sprite_images("ThisJohn_up"),
+            "up" : self.load_sprite_images("player_sprites/up"),
             "down" : self.load_sprite_images("player_sprites/down"),
-            #"left" : self.load_sprite_images("ThisJohn_left"),
-            #"right" : self.load_sprite_images("ThisJohn_right")
+            "left" : self.load_sprite_images("player_sprites/left"),
+            "right" : self.load_sprite_images("player_sprites/right")
         }
         self.position = [0, 0]
         self.facing = "down"
