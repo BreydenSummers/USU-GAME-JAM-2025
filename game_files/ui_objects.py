@@ -66,7 +66,7 @@ class RectButton(Clickable):
         pygame.draw.rect(screen,self.color,(self.cx,self.cy,self.w,self.h))
         if self.text != "":
             self.text.draw(screen)
-            
+
 
 
 class RoundButton(Clickable):
