@@ -9,9 +9,9 @@ class Scene:
 
         self.objects = []
         self.surface = pygame.Surface((w, h))
-        self.image.blit(self.surface, (0, 0))
+        self.surface.blit(self.image, (0, 0))
 
-        self.map = [[0 for _ in range(h/TILE_SIZE)] for _ in range(w/TILE_SIZE)]
+        self.map = [[0 for _ in range(int(h/TILE_SIZE))] for _ in range(int(w/TILE_SIZE))]
 
     def add_map_object(self, obj, row, column):
         self.map[row][column] = obj
@@ -28,4 +28,4 @@ class Scene:
         obj.draw(self.surface)
 
     def draw(self,screen):
-        self.surface.blit(screen, (0, 0))
+        screen.blit(self.surface, (0, 0))
