@@ -13,8 +13,8 @@ assets_path = os.path.join(os.path.dirname( __file__ ), "..", "Assets")
 display = pygame.display.set_mode((1, 1))
 player = Player()
 
-menu = Scene(os.path.join(assets_path,"Background/map.png"),400,300)
-menu.add_ui_object(RectButton(200,150,100,50,(200,200,200),print,text="Start"))
+#menu = Scene(os.path.join(assets_path,"Background/map.png"),400,300)
+#menu.add_ui_object(RectButton(200,150,100,50,(200,200,200),print,text="Start"))
 
 class Game:
     def __init__(self, window_size = (400, 300), max_framerate = 30):
@@ -56,7 +56,6 @@ class Game:
 
         player.animate(self.window, self.frame_count)
         
-        #menu.draw(self.window)
 
         pygame.display.update()
         self.frame_count += 1
