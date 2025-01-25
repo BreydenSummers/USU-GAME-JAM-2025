@@ -40,7 +40,17 @@ class Game:
             if event.type == pygame.QUIT:
                 self.running = False
                 return 0
-            #print(event)
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w:
+                    player.move("up")
+                if event.key == pygame.K_s:
+                    player.move("down")
+                if event.key == pygame.K_a:
+                    player.move("left")
+                if event.key == pygame.K_d:
+                    player.move("right")
+
 
     def update_physics(self):
         pass
@@ -50,7 +60,7 @@ class Game:
 
         self.window.blit(self.map, (0, 0))
 
-        player.animate(self.window, self.frame_count)
+        player.draw_to_surface(self.window, self.frame_count)
 
         pygame.display.update()
         self.frame_count += 1
