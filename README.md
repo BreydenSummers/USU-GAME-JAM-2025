@@ -11,5 +11,5 @@ Player controller, out of pocket guy, basic vibes.
 Graphics or anything remotely pretty. GOAT.
 ### Kaden
 Text and sprites or anything clickable. Please give your variables longer names...
-### Brayden
+### Breyden
 Title screen and GitHub. Sorry again about those wild merges lol.
